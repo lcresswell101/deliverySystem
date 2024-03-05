@@ -1,0 +1,15 @@
+{
+    "name": "lukecresswell/delivery-system",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luke Cresswell",
+            "email": "luke.cresswell@viewber.co.uk"
+        }
+    ],
+    "require": {}
+}
