@@ -1,5 +1,7 @@
 <?php
 
+use Src\CourierFactory;
+use Src\CourierType;
 use Src\Delivery;
 use Src\DispatchPeriod;
 use Src\Dpd;
@@ -10,7 +12,9 @@ require __DIR__.'/vendor/autoload.php';
 $dispatchPeriod = new DispatchPeriod();
 $dispatchPeriod->start();
 
-$dispatchPeriod->addDelivery(new Delivery(new Dpd()));
-$dispatchPeriod->addDelivery(new Delivery(new Evri()));
+$courierFactory = new CourierFactory();
+
+$dispatchPeriod->addDelivery(new Delivery($courierFactory->build(CourierType::DPD)));
+$dispatchPeriod->addDelivery(new Delivery($courierFactory->build(CourierType::EVRI)));
 
 $dispatchPeriod->end();

@@ -1,10 +1,8 @@
 <?php
 
-namespace src;
+namespace Src;
 
 interface CourierInterface
 {
     public function generateDeliveryNumber(): string;
-
-    public function transportMethod(): string;
 }

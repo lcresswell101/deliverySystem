@@ -2,16 +2,10 @@
 
 namespace Src;
 
-class Evri implements CourierInterface
+class Evri extends Courier
 {
-
-    public function generateDeliveryNumber(): string
+    public function __construct()
     {
-        return 'EVRI' . rand(0, 10000);
-    }
-
-    public function transportMethod(): string
-    {
-        // TODO: Implement transportMethod() method.
+        parent::__construct(CourierType::EVRI);
     }
 }
