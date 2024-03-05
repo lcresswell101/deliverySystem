@@ -4,10 +4,8 @@ namespace Src;
 
 class Delivery
 {
-    public string $deliveryNumber;
-
-    public function __construct(public CourierInterface $courier)
+    public function __construct(public Courier $courier)
     {
-        $this->deliveryNumber = $this->courier->generateDeliveryNumber();
+
     }
 }

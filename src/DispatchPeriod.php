@@ -19,7 +19,7 @@ class DispatchPeriod
     public function end(): void
     {
         foreach ($this->orders as $order) {
-            echo $order->deliveryNumber . "<br>";
+            echo $order->courier->getDeliveryNumber() . "<br>";
         }
     }
 }
