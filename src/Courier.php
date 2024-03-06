@@ -2,19 +2,16 @@
 
 namespace Src;
 
-class Courier
+abstract class Courier
 {
-    private string $name;
-
     private string $deliveryNumber;
 
-    public function __construct(private CourierBuilder $courierBuilder)
+    final public function setDeliveryNumber(string $prefix): void
     {
-        $this->name = $this->courierBuilder->getName();
-        $this->deliveryNumber = $this->courierBuilder->getDeliveryNumber();
+        $this->deliveryNumber = $prefix . rand(1000, 9999);
     }
 
-    public function getDeliveryNumber(): string
+    final public function getDeliveryNumber(): string
     {
         return $this->deliveryNumber;
     }

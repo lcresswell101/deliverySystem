@@ -2,24 +2,21 @@
 
 use Src\CourierBuilder;
 use Src\Delivery;
+use Src\Director;
 use Src\DispatchPeriod;
+use Src\DpdBuilder;
+use Src\EvriBuilder;
 
 require __DIR__.'/vendor/autoload.php';
 
 $dispatchPeriod = new DispatchPeriod();
 $dispatchPeriod->start();
 
-$courierBuilder = new CourierBuilder();
+$dpdBuilder = new DpdBuilder();
+$dpd = (new Director())->build($dpdBuilder);
 
-$dpd = $courierBuilder
-    ->setName('dpd')
-    ->setDeliveryNumber('DPD'. rand(1, 10000))
-    ->build();
-
-$evri = $courierBuilder
-    ->setName('evri')
-    ->setDeliveryNumber('EVRI'. rand(1, 10000))
-    ->build();
+$evriBuilder = new EvriBuilder();
+$evri = (new Director())->build($evriBuilder);
 
 $dispatchPeriod->addDelivery(new Delivery($dpd));
 $dispatchPeriod->addDelivery(new Delivery($evri));
