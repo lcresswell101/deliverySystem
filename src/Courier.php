@@ -4,7 +4,7 @@ namespace Src;
 
 class Courier implements CourierInterface
 {
-    public function __construct(public CourierType $courierType)
+    public function __construct(public CourierType $courierType, public CourierLocation $courierLocation)
     {
 
     }
